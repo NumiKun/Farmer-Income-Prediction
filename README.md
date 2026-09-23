@@ -1,5 +1,11 @@
 # End-to-End Farmer Income Prediction with LightGBM
 
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![LightGBM](https://img.shields.io/badge/Model-LightGBM%204.7.0-brightgreen)](https://lightgbm.readthedocs.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Out-Of-Fold R2](https://img.shields.io/badge/OOF%20R%C2%B2-0.9215-blue)](Model/artifacts/cv_metrics.json)
+[![Out-Of-Fold WAPE](https://img.shields.io/badge/OOF%20WAPE-19.30%25-orange)](Model/artifacts/cv_metrics.json)
+
 ## Executive Summary
 
 This repository delivers an end-to-end predictive modeling pipeline designed to estimate agricultural household income across rural India using high-dimensional tabular data. Combining geographic information, credit bureau disbursement records, historical seasonal crop metrics, remote sensing ground-water indices, and village socio-economic parameters, the system deploys a gradient-boosted decision tree architecture (LightGBM) optimized under a domain-specific income decomposition strategy.
@@ -216,7 +222,9 @@ Geographic micro-clustering (`CITY`, `VILLAGE`, `DISTRICT`) accounts for over 33
 |       `-- train_test_distribution.png# Train vs. test feature distribution
 |
 |-- .gitignore                         # Excludes large binaries (>100MB) from git tracking
-`-- README.md                          # Project documentation
+|-- LICENSE                            # MIT License
+|-- README.md                          # Project documentation
+`-- requirements.txt                   # Environment dependencies
 ```
 
 > **Note on Model Weights**: In accordance with GitHub repository limits and machine learning best practices, raw compiled model binaries (`final_lgbm_model.pkl` and `final_lgbm_model.txt`, ~105 MB each) are managed locally and excluded via `.gitignore`. The complete model can be reproduced deterministically by running the training pipeline notebook.
@@ -227,25 +235,21 @@ Geographic micro-clustering (`CITY`, `VILLAGE`, `DISTRICT`) accounts for over 33
 
 ### Prerequisites
 
-Ensure you have Python 3.9 or higher installed. The pipeline requires the following packages:
+Ensure you have Python 3.9 or higher installed. Clone the repository and install dependencies using `requirements.txt`:
 
 ```bash
-pip install numpy pandas scikit-learn lightgbm scipy matplotlib seaborn jupyter
+git clone https://github.com/NumiKun/Farmer-Income-Prediction.git
+cd Farmer-Income-Prediction
+pip install -r requirements.txt
 ```
 
 ### Reproducing the Pipeline
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/NumiKun/Farmer-Income-Prediction.git
-   cd Farmer-Income-Prediction
-   ```
-
-2. Verify dataset placement:
+1. Verify dataset placement:
    Ensure `lte_train.csv`, `lte_test.csv`, and `lte_dictionary.csv` reside in the `Dataset/` directory.
 
-3. Execute the pipeline:
-   Launch Jupyter and run all cells in `Model/farmer_income_prediction.ipynb`:
+2. Execute the pipeline:
+   Launch Jupyter and execute all cells in `Model/farmer_income_prediction.ipynb`:
    ```bash
    jupyter notebook Model/farmer_income_prediction.ipynb
    ```
@@ -271,4 +275,10 @@ pip install numpy pandas scikit-learn lightgbm scipy matplotlib seaborn jupyter
 
 ## License
 
-This project is released under the MIT License. You are free to adapt, modify, and distribute the work with appropriate attribution.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+
+Developed by [NumiKun](https://github.com/NumiKun).
