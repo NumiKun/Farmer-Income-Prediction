@@ -1,0 +1,26 @@
+# Python & Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Large Model Artifacts (> 100 MB - GitHub Limit)
+Model/artifacts/final_lgbm_model.pkl
+Model/artifacts/final_lgbm_model.txt
+
+# General large model binary patterns (uncomment if you want to ignore all .pkl)
+# *.pkl
+# !Model/artifacts/label_encoders.pkl
+# !Model/artifacts/train_medians.pkl
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
